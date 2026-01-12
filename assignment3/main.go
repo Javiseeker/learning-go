@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 	"io"
 	"os"
@@ -30,16 +29,16 @@ func main() {
 	}()
 
 	// Create a buffer to store the file contents
-	var contents bytes.Buffer
+	//var contents bytes.Buffer
 
 	// Copy file contents to the buffer
-	_, err = io.Copy(&contents, file)
-	if err != nil {
-		fmt.Println("Error reading file:", err)
-		os.Exit(1)
-	}
+	_, _ = io.Copy(os.Stdout, file)
+	//if err != nil {
+	//	fmt.Println("Error reading file:", err)
+	//	os.Exit(1)
+	//}
 
-	// Print the file contents
-	fmt.Println("\nFile contents:")
-	fmt.Println(contents.String())
+	//// Print the file contents
+	//fmt.Println("\nFile contents:")
+	//fmt.Println(contents.String())
 }
